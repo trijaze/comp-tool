@@ -65,6 +65,7 @@ int write_file_to_tar(FILE *out, const char *filepath) {
     snprintf(header.mtime, sizeof(header.mtime), "%011lo", (long)st.st_mtime);
     header.typeflag = '0'; // File thường
     strncpy(header.magic, "ustar", 5);
+    header.magic[5] = '\0'; 
     header.version[0] = '0';
     strncpy(header.uname, "user", sizeof(header.uname) - 1);
     strncpy(header.gname, "group", sizeof(header.gname) - 1);
