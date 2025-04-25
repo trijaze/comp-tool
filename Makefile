@@ -17,12 +17,12 @@ SRC = main.c \
 OBJ = $(SRC:.c=.o)
 
 comp-tool: $(OBJ)
-      $(CC) $(CFLAGS) -o $@ $(OBJ)
+	$(CC) $(CFLAGS) -o $@ $(OBJ)
 
 %.o: %.c
-      $(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-      rm -f comp-tool $(OBJ) *.log
+	rm -f comp-tool $(OBJ) *.log
 
 .PHONY: clean
