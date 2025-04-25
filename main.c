@@ -2,6 +2,7 @@
 #include "include/logger.h"
 #include "include/compress.h"
 #include "include/file_io.h"
+#include "include/tar.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
