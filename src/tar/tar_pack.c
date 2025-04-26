@@ -6,21 +6,23 @@
 #include <stdlib.h>
 #include <string.h>
 
-void tar_pack(const char *input_path, const char *tar_file) {
+int tar_pack(const char *input_path, const char *tar_file) {
     log_info("Packing %s into tar archive %s\n", input_path, tar_file);
     FILE *out = fopen(tar_file, "wb");
     if (!out) {
         log_error("Cannot create tar file %s\n", tar_file);
-        return;
+        return 0;
     }
 
     if (write_file_to_tar(out, input_path) != 0) {
         fclose(out);
-        return;
+        return 0;
     }
 
     // Ghi khối kết thúc (2 khối 0)
     char end_block[TAR_BLOCK_SIZE] = {0};
     fwrite(end_block, TAR_BLOCK_SIZE, 2, out);
     fclose(out);
+
+    return 1;  
 }

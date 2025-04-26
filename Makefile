@@ -12,6 +12,7 @@ SRC = main.c \
 	src/tar/tar_unpack.c \
 	src/file/file_io.c \
 	src/utils/crc32.c \
+    src/crypto/crypto.c \
 	src/utils/endian.c
 
 OBJ = $(SRC:.c=.o)
